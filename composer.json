@@ -17,7 +17,7 @@
         ]
     },
     "scripts": {
-        "test": "tester tests"
+        "test": "phpunit tests"
     },
     "require": {
         "php": ">=5.6.0"
