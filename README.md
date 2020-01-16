@@ -27,3 +27,6 @@ $user->password = 54321;
 $manager = Supervisor::cast($user);
 echo $manager->id; //It will return 12345;
 ~~~
+
+# About contribution
+   Feel free about contribution , i will check your commits as soon as possible
