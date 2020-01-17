@@ -33,7 +33,7 @@ trait TCast
                 }
             }
         } catch (ReflectionException $exception) {
-            $sourceObject;
+            return $sourceObject;
         }
         return $destinationObject;
     }
