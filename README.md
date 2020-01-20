@@ -28,7 +28,8 @@ $manager = Supervisor::cast($user);
 echo $manager->id; //It will return 12345;
 ~~~
 
-#Code example with mapping
+# Code example with mapping
+
 ~~~php
     class User{
         public $userId;
