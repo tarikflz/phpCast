@@ -7,8 +7,8 @@ $user = new User();
 $user->id = 12345;
 $supervisor = (Supervisor) $user; // This is not ok for php
 ~~~
-Thats why i need to use a trait for casting operation it can be useable whole project.
-# Code Example
+Thats why i need to use a trait for casting operation it can be usable whole project.
+# Code example
 
 ~~~php
 class User{
@@ -26,6 +26,27 @@ $user->password = 54321;
 
 $manager = Supervisor::cast($user);
 echo $manager->id; //It will return 12345;
+~~~
+
+#Code example with mapping
+~~~php
+    class User{
+        public $userId;
+        public $password;
+    }
+    class Supervisor extends User{
+        use TCast;
+        const MAPPING = ['userId'=>'supervisorId']; // first key source second is target.
+        public $salary;
+        public $supervisorId;
+    }
+    
+    $user = new User();
+    $user->userId = 12345;
+    $user->password = 54321;
+    
+    $manager = Supervisor::cast($user);
+    echo $manager->supervisorId; //It will return 12345;
 ~~~
 
 # About contribution

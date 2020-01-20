@@ -9,11 +9,13 @@ final class TCastTest extends TestCase{
 
     public $destination;
     public $source;
+    public $mappingSource;
 
     protected function setUp():void
     {
         $this->destination = new class{use TCast;public $id;};
         $this->source = new class{use TCast;public $id;};
+        $this->mappingSource = new class{use TCast;const MAPPING=['id'=>'managerId'];public $managerId;};
         $this->source->id = 12345;
     }
 
@@ -27,6 +29,11 @@ final class TCastTest extends TestCase{
     public function testCastCopyTheValues(){
         $dest = $this->destination->cast($this->source);
         $this->assertEquals($dest->id,$this->source->id);
+    }
+
+    public function testCastMappingWorks(){
+        $dest = $this->destination->cast($this->mappingSource);
+        $this->assertEquals($dest->id,$this->mappingSource->managerId);
     }
 
 }
